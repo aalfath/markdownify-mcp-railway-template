@@ -1,0 +1,11 @@
+# Keep git (used by repomix for git-repo-to-markdown) small on Railway's 0.5 GB plan.
+[pack]
+	threads = 1
+	windowMemory = 32m
+	deltaCacheSize = 16m
+[core]
+	packedGitLimit = 64m
+	packedGitWindowSize = 16m
+	bigFileThreshold = 16m
+[advice]
+	detachedHead = false

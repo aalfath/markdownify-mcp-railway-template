@@ -1,0 +1,5 @@
+#!/bin/sh
+# repomix (git-repo-to-markdown) with its worker pool capped to MD_THREADS:
+# it otherwise starts one worker per host CPU (32 on Railway), each a full runtime.
+echo 1000 > /proc/self/oom_score_adj 2>/dev/null || true
+exec bun --preload /app/bin/cap-cpus.js /app/node_modules/repomix/bin/repomix.cjs "$@"
